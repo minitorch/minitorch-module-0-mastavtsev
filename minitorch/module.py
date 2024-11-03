@@ -59,9 +59,6 @@ class Module:
         for parameter in self.__dict__["_parameters"].items():
             parameters.append(parameter)
 
-        for module in self.modules():
-            parameters += module.named_parameters()
-
         for module_name, module in self.__dict__["_modules"].items():
             for param_name, param in module.named_parameters():
                 parameters.append((f"{module_name}.{param_name}", param))
